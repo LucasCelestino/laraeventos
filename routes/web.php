@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\EventController;
+
+Route::get('/', [EventController::class, 'index'])->name('eventos.home');
+Route::get('/events/create', [EventController::class, 'create'])->name('eventos.form-criar');
+Route::post('/events/create', [EventController::class, 'store'])->name('eventos.post-criar');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('eventos.show');
