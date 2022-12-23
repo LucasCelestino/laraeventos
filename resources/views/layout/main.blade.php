@@ -26,15 +26,25 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Eventos</a>
                   </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{route('eventos.form-criar')}}">Criar Eventos</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Entrar</a>
+                @auth
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('eventos.form-criar')}}">Meus Eventos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Cadastrar</a>
+                    <a class="nav-link" href="{{route('eventos.form-criar')}}">Sair</a>
                   </li>
+                @endauth
+                @guest
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('eventos.form-criar')}}">Criar Eventos</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Entrar</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Cadastrar</a>
+                    </li>
+                @endguest
               </ul>
               <form class="form-inline my-2 my-lg-0" method="GET" action="{{route('eventos.home')}}">
                 <input class="form-control mr-sm-2" name="search" type="search" placeholder="Procurar..." aria-label="Search">
