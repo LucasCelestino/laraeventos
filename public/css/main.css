@@ -1,0 +1,23 @@
+*
+{
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner
+{
+    width: 100%;
+    height: 500px;
+    background-image: url('../img/pexels-maor-attias-5175491.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.card-date
+{
+    font-size: 13px;
+}
+
+.card-text
+{
+    font-size: 15px;
+}

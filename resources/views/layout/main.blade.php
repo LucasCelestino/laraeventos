@@ -31,10 +31,10 @@
                     <a class="nav-link" href="{{route('eventos.form-criar')}}">Criar Eventos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('eventos.form-criar')}}">Meus Eventos</a>
+                    <a class="nav-link" href="{{route('eventos.dashboard')}}">Meus Eventos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('eventos.form-criar')}}">Sair</a>
+                    <a class="nav-link" href="{{route('login.logout')}}">Sair</a>
                   </li>
                 @endauth
                 @guest
