@@ -24,8 +24,9 @@ Route::post('/events/create', [EventController::class, 'store'])->name('eventos.
 Route::get('/events/{id}', [EventController::class, 'show'])->name('eventos.show');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('eventos.dashboard');
-Route::get('/dashboard/edit/{id}', [DashboardController::class, 'edit'])->name('eventos.dashboard.edit');
-Route::delete('/dashboard/delete/{id}', [DashboardController::class, 'destroy'])->name('eventos.dashboard.destroy');
+Route::get('/dashboard/edit/{id}', [EventController::class, 'edit'])->name('eventos.dashboard.edit');
+Route::put('/dashboard/edit/{id}', [EventController::class, 'update'])->name('eventos.dashboard.update');
+Route::delete('/dashboard/delete/{id}', [EventController::class, 'destroy'])->name('eventos.dashboard.destroy');
 
 Auth::routes();
 

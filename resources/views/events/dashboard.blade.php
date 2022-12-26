@@ -24,7 +24,11 @@
                     <td>0</td>
                     <td>
                         <a href="{{route('eventos.dashboard.edit', [$event->id])}}"><button class="btn btn-warning text-white">Editar</button></a>
-                        <a href="{{route('eventos.dashboard.destroy', [$event->id])}}"><button class="btn btn-danger">Excluir</button></a>
+                        <form action="{{route('eventos.dashboard.destroy', [$event->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger text-white" type="submit">Excluir</button>
+                        </form>
                     </td>
                 </tr>
               @endforeach

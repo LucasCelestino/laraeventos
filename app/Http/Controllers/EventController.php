@@ -117,7 +117,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        return view('events.edit', ['event'=>$event]);
     }
 
     /**
@@ -129,7 +131,28 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $requestAll = $request->all();
+
+        $event = Event::findOrFail($id);
+
+        if($request->hasFile('img_path'))
+        {
+            unlink(public_path('img/events/' . $event->img_path));
+
+            $requestImage = $request->img_path;
+
+            $extension = $requestImage->extension();
+
+            $imageName = md5($requestImage->getClientOriginalName() . strtotime("now")) . "." . $extension;
+
+            $requestImage->move(public_path("img/events"), $imageName);
+
+            $requestAll['img_path'] = $imageName;
+        }
+
+        $event->update($requestAll);
+
+        return redirect()->route('eventos.dashboard');
     }
 
     /**
@@ -140,6 +163,16 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $user = auth()->user();
+
+        if($event->user_id != $user->id)
+        {
+            return view('events.dashboard');
+        }
+
+        $event->delete();
+
+        return redirect()->route('eventos.dashboard');
     }
 }
