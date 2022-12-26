@@ -13,7 +13,7 @@
             <h1>{{$event->title}}</h1>
             <p>Localização: {{$event->city}}</p>
             <p>Participantes: </p>
-            <p>Dono do evento: </p>
+            <p>Dono do evento: {{$event->user->name}}</p>
             <p>Data do evento: {{date('d/m/Y', strtotime($event->event_date))}}</p>
             <button class="btn btn-warning text-white mb-4">Confirmar presença</button>
             <h3>O evento conta com:</h3>

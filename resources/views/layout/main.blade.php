@@ -28,6 +28,9 @@
                   </li>
                 @auth
                   <li class="nav-item">
+                    <a class="nav-link" href="{{route('eventos.form-criar')}}">Criar Eventos</a>
+                  </li>
+                  <li class="nav-item">
                     <a class="nav-link" href="{{route('eventos.form-criar')}}">Meus Eventos</a>
                   </li>
                   <li class="nav-item">
@@ -35,14 +38,11 @@
                   </li>
                 @endauth
                 @guest
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('eventos.form-criar')}}">Criar Eventos</a>
-                  </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">Entrar</a>
+                      <a class="nav-link" href="/login">Entrar</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Cadastrar</a>
+                      <a class="nav-link" href="/register">Cadastrar</a>
                     </li>
                 @endguest
               </ul>
